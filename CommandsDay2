@@ -1,0 +1,37 @@
+Segunda aula de Kubernetes:
+
+1. Criar o cluster: 
+
+	minikube start -f pacman-cluster
+
+2. Realizar o apply do ficheiro principal: 
+
+	kubectl apply -f pacman-cluster.yaml 
+
+3. Criar o serviço:
+
+	kubectl create -f service.yaml
+
+4. Verificar criação do serviço:
+
+	kubectl describe svc pacman-service
+
+5. Dar enable ao ingress:
+
+	minikube addons enable ingress -p pacman-cluster
+
+6. Dar apply do ingress:
+
+	kubectl apply -f ingress.yaml
+
+7. Verificar o IP:
+
+	kubectl get ingress
+
+8. Adicionar o IP nos hosts:
+
+	code /etc/hosts
+
+9. Verificar o resultado
+
+	curl pacman.local
